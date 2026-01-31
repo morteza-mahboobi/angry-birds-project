@@ -11,6 +11,7 @@
 <h4>Features of my project :</h4>
 <ul>
     <li>Includes various level and map</li>
+    <li>All map is responsive</li>
     <li>Includes various number of shot</li>
     <li>Includes various type of shot</li>
     <li>Includes a game guid</li>
