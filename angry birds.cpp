@@ -147,7 +147,7 @@ int main()
 
         if (Choice == 1)
         {
-            short StarMap1 = PlayGame(1, 0, 0, 0, 1);
+            short StarMap1 = PlayGame(1, 5, 1, 0, 0);
             if (StarMap1 != -1)
             {
                 system("cls");
@@ -677,7 +677,7 @@ int main()
             cout << "          About The Developer\n";
             cout << "--------------------------------------\n\n";
 
-            cout << " Create by \" Morteza Mahboobi \" " ;
+            cout << " Create by \" Morteza Mahboobi \" " << endl;
 
             PauseScreen();
         }
@@ -1791,8 +1791,8 @@ void NormalShot(short &CounterEnemy, short &CounterWall, short **GridMap)
     {
         while (true)
         {
-            if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+            if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
             {
                 getch();
                 CounterEnemy = -1;
@@ -1850,8 +1850,8 @@ void NormalShot(short &CounterEnemy, short &CounterWall, short **GridMap)
             {
                 while (TempBullet.xPos != Bullet.xPos + (short)vx - 1)
                 {
-                    if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                        (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+                    if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                        (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
                     {
                         getch();
                         CounterEnemy = -1;
@@ -1897,8 +1897,8 @@ void NormalShot(short &CounterEnemy, short &CounterWall, short **GridMap)
                 {
                     while (TempBullet.yPos != Bullet.yPos - (short)vy)
                     {
-                        if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                            (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+                        if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                            (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
                         {
                             getch();
                             CounterEnemy = -1;
@@ -1947,8 +1947,8 @@ void NormalShot(short &CounterEnemy, short &CounterWall, short **GridMap)
                 {
                     while (TempBullet.yPos != Bullet.yPos - (short)vy - 1)
                     {
-                        if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                            (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+                        if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                            (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
                         {
                             getch();
                             CounterEnemy = -1;
@@ -2378,15 +2378,15 @@ void DropKickShot(short &CounterEnemy, short &CounterWall, short **GridMap)
     {
         while (true)
         {
-            if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+            if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
             {
                 getch();
                 CounterEnemy = -1;
                 return;
             }
-            if ((GetAsyncKeyState(SpecialShotKeyL) && 0x8000) || (GetAsyncKeyState(SpecialShotKeyL) && 0x0001) ||
-                (GetAsyncKeyState(SpecialShotKeyS) && 0x8000) || (GetAsyncKeyState(SpecialShotKeyS) && 0x0001))
+            if ((GetAsyncKeyState(SpecialShotKeyL) & 0x8000) || (GetAsyncKeyState(SpecialShotKeyL) & 0x0001) ||
+                (GetAsyncKeyState(SpecialShotKeyS) & 0x8000) || (GetAsyncKeyState(SpecialShotKeyS) & 0x0001))
             {
                 vx = 0;
                 vy = -1;
@@ -2437,8 +2437,8 @@ void DropKickShot(short &CounterEnemy, short &CounterWall, short **GridMap)
                 vy < 0 ----> حرکت رو به پایین
             */
 
-            if (vx != 0 && !((GetAsyncKeyState(SpecialShotKeyL) && 0x8000) || (GetAsyncKeyState(SpecialShotKeyL) && 0x0001) ||
-                             (GetAsyncKeyState(SpecialShotKeyS) && 0x8000) || (GetAsyncKeyState(SpecialShotKeyS) && 0x0001)))
+            if (vx != 0 && !((GetAsyncKeyState(SpecialShotKeyL) & 0x8000) || (GetAsyncKeyState(SpecialShotKeyL) & 0x0001) ||
+                             (GetAsyncKeyState(SpecialShotKeyS) & 0x8000) || (GetAsyncKeyState(SpecialShotKeyS) & 0x0001)))
             {
                 double m = -vy / vx;
                 x1 = TempBullet.xPos;
@@ -2448,15 +2448,15 @@ void DropKickShot(short &CounterEnemy, short &CounterWall, short **GridMap)
                 {
                     while (TempBullet.xPos != Bullet.xPos + (short)vx - 1)
                     {
-                        if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                            (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+                        if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                            (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
                         {
                             getch();
                             CounterEnemy = -1;
                             return;
                         }
-                        if ((GetAsyncKeyState(SpecialShotKeyL) && 0x8000) || (GetAsyncKeyState(SpecialShotKeyL) && 0x0001) ||
-                            (GetAsyncKeyState(SpecialShotKeyS) && 0x8000) || (GetAsyncKeyState(SpecialShotKeyS) && 0x0001))
+                        if ((GetAsyncKeyState(SpecialShotKeyL) & 0x8000) || (GetAsyncKeyState(SpecialShotKeyL) & 0x0001) ||
+                            (GetAsyncKeyState(SpecialShotKeyS) & 0x8000) || (GetAsyncKeyState(SpecialShotKeyS) & 0x0001))
                         {
                             vx = 0;
                             vy = -1;
@@ -2506,15 +2506,15 @@ void DropKickShot(short &CounterEnemy, short &CounterWall, short **GridMap)
                     {
                         while (TempBullet.yPos != Bullet.yPos - (short)vy)
                         {
-                            if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                                (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+                            if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                                (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
                             {
                                 getch();
                                 CounterEnemy = -1;
                                 return;
                             }
-                            if ((GetAsyncKeyState(SpecialShotKeyL) && 0x8000) || (GetAsyncKeyState(SpecialShotKeyL) && 0x0001) ||
-                                (GetAsyncKeyState(SpecialShotKeyS) && 0x8000) || (GetAsyncKeyState(SpecialShotKeyS) && 0x0001))
+                            if ((GetAsyncKeyState(SpecialShotKeyL) & 0x8000) || (GetAsyncKeyState(SpecialShotKeyL) & 0x0001) ||
+                                (GetAsyncKeyState(SpecialShotKeyS) & 0x8000) || (GetAsyncKeyState(SpecialShotKeyS) & 0x0001))
                             {
                                 vx = 0;
                                 vy = -1;
@@ -2565,15 +2565,15 @@ void DropKickShot(short &CounterEnemy, short &CounterWall, short **GridMap)
                     {
                         while (TempBullet.yPos != Bullet.yPos - (short)vy - 1)
                         {
-                            if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                                (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+                            if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                                (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
                             {
                                 getch();
                                 CounterEnemy = -1;
                                 return;
                             }
-                            if ((GetAsyncKeyState(SpecialShotKeyL) && 0x8000) || (GetAsyncKeyState(SpecialShotKeyL) && 0x0001) ||
-                                (GetAsyncKeyState(SpecialShotKeyS) && 0x8000) || (GetAsyncKeyState(SpecialShotKeyS) && 0x0001))
+                            if ((GetAsyncKeyState(SpecialShotKeyL) & 0x8000) || (GetAsyncKeyState(SpecialShotKeyL) & 0x0001) ||
+                                (GetAsyncKeyState(SpecialShotKeyS) & 0x8000) || (GetAsyncKeyState(SpecialShotKeyS) & 0x0001))
                             {
                                 vx = 0;
                                 vy = -1;
@@ -3019,8 +3019,8 @@ void BombShot(short &CounterEnemy, short &CounterWall, short **GridMap)
     {
         while (true)
         {
-            if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+            if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
             {
                 getch();
                 CounterEnemy = -1;
@@ -3092,8 +3092,8 @@ void BombShot(short &CounterEnemy, short &CounterWall, short **GridMap)
             {
                 while (TempBullet.xPos != Bullet.xPos + (short)vx - 1)
                 {
-                    if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                        (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+                    if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                        (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
                     {
                         getch();
                         CounterEnemy = -1;
@@ -3154,8 +3154,8 @@ void BombShot(short &CounterEnemy, short &CounterWall, short **GridMap)
                 {
                     while (TempBullet.yPos != Bullet.yPos - (short)vy)
                     {
-                        if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                            (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+                        if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                            (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
                         {
                             getch();
                             CounterEnemy = -1;
@@ -3218,8 +3218,8 @@ void BombShot(short &CounterEnemy, short &CounterWall, short **GridMap)
                 {
                     while (TempBullet.yPos != Bullet.yPos - (short)vy - 1)
                     {
-                        if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                            (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+                        if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                            (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
                         {
                             getch();
                             CounterEnemy = -1;
@@ -3640,8 +3640,8 @@ void DrillShot(short &CounterEnemy, short &CounterWall, short **GridMap)
     {
         while (true)
         {
-            if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+            if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
             {
                 getch();
                 CounterEnemy = -1;
@@ -3704,8 +3704,8 @@ void DrillShot(short &CounterEnemy, short &CounterWall, short **GridMap)
             {
                 while (TempBullet.xPos != Bullet.xPos + (short)vx - 1)
                 {
-                    if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                        (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+                    if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                        (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
                     {
                         getch();
                         CounterEnemy = -1;
@@ -3757,8 +3757,8 @@ void DrillShot(short &CounterEnemy, short &CounterWall, short **GridMap)
                 {
                     while (TempBullet.yPos != Bullet.yPos - (short)vy)
                     {
-                        if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                            (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+                        if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                            (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
                         {
                             getch();
                             CounterEnemy = -1;
@@ -3812,8 +3812,8 @@ void DrillShot(short &CounterEnemy, short &CounterWall, short **GridMap)
                 {
                     while (TempBullet.yPos != Bullet.yPos - (short)vy - 1)
                     {
-                        if ((GetAsyncKeyState(ExitKeyInGameL) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) && 0x0001) ||
-                            (GetAsyncKeyState(ExitKeyInGameS) && 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) && 0x0001))
+                        if ((GetAsyncKeyState(ExitKeyInGameL) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameL) & 0x0001) ||
+                            (GetAsyncKeyState(ExitKeyInGameS) & 0x8000) || (GetAsyncKeyState(ExitKeyInGameS) & 0x0001))
                         {
                             getch();
                             CounterEnemy = -1;
