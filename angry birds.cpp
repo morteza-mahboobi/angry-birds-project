@@ -208,7 +208,7 @@ int main()
             short **GridMap = new short *[SizeOfMapX + 1];
             for (int i = 0; i <= SizeOfMapX; i++)
             {
-                GridMap[i] = new short[SizeOfMapY];
+                GridMap[i] = new short[SizeOfMapY + 1];
                 for (int j = 0; j <= SizeOfMapY; j++)
                 {
                     GridMap[i][j] = 0;
@@ -3904,7 +3904,7 @@ short PlayGame(short WhichMap, short NumberOfNormalShot, short NumberOfDropkickS
     short **GridMap = new short *[SizeOfMapX + 1];
     for (int i = 0; i <= SizeOfMapX; i++)
     {
-        GridMap[i] = new short[SizeOfMapY];
+        GridMap[i] = new short[SizeOfMapY + 1];
         for (int j = 0; j <= SizeOfMapY; j++)
         {
             GridMap[i][j] = 0;
