@@ -3911,6 +3911,10 @@ short PlayGame(short WhichMap, short NumberOfNormalShot, short NumberOfDropkickS
 {
     short CounterEnemy = 0, CounterWall = 0;
     short UseNormalShot = 0, UseDropkickShot = 0, UseBombShot = 0, UseDrillShot = 0;
+    short AllNumberOfNormalShot = NumberOfNormalShot;
+    short AllNumberOfDropkickShot = NumberOfDropkickShot;
+    short AllNumberOfBombShot = NumberOfBombShot;
+    short AllNumberOfDrillShot = NumberOfDrillShot;
     short NumberOfEnemy;
     short Star;
 
@@ -3953,99 +3957,153 @@ short PlayGame(short WhichMap, short NumberOfNormalShot, short NumberOfDropkickS
 
     Border(GridMap);
 
-    for (short i = 0; i < NumberOfNormalShot; i++)
+    char ChoiceShot;
+    while ((NumberOfNormalShot != 0) || (NumberOfDropkickShot != 0) || (NumberOfBombShot != 0) || (NumberOfDrillShot != 0))
     {
-        NormalShot(CounterEnemy, CounterWall, GridMap);
-        if (CounterEnemy == -1)
-        {
-            return -1;
-        }
-        UseNormalShot++;
         ClearArea(10, 100, 0, SizeOfMapY + 1);
         gotoxy(0, SizeOfMapY);
         cout << "\n\n";
-        cout << "Enemy : " << CounterEnemy << endl;
-        cout << "Wall : " << CounterWall << endl;
-        cout << "Number Of Normal Shot : " << NumberOfNormalShot - UseNormalShot << endl;
-        cout << "Number Of Drop Kick Shot : " << NumberOfDropkickShot - UseDropkickShot << endl;
-        cout << "Number Of Bomb Shot : " << NumberOfBombShot - UseBombShot << endl;
-        cout << "Number Of Drill Shot : " << NumberOfDrillShot - UseDrillShot;
-        PauseScreen();
-        if (CounterEnemy == NumberOfEnemy)
-        {
-            break;
-        }
-    }
+        cout << "1) Normal Shot (" << NumberOfNormalShot << ")" << endl
+             << "2) Drop Kick Shot (" << NumberOfDropkickShot << ")" << endl
+             << "3) Bomb Shot (" << NumberOfBombShot << ")" << endl
+             << "4) Drill Shot (" << NumberOfDrillShot << ")\n\n";
+        cout << "Which shot do you want (enter one key in keyboard without press enter)";
+        ChoiceShot = getch();
 
-    for (short i = 0; i < NumberOfDropkickShot; i++)
-    {
-        DropKickShot(CounterEnemy, CounterWall, GridMap);
-        if (CounterEnemy == -1)
+        if (NumberOfNormalShot > 0 && ChoiceShot == '1')
         {
-            return -1;
+            NormalShot(CounterEnemy, CounterWall, GridMap);
+            if (CounterEnemy == -1)
+            {
+                return -1;
+            }
+            UseNormalShot++;
+            NumberOfNormalShot--;
+            ClearArea(10, 100, 0, SizeOfMapY + 1);
+            gotoxy(0, SizeOfMapY);
+            cout << "\n\n";
+            cout << "Enemy : " << CounterEnemy << endl;
+            cout << "Wall : " << CounterWall << endl;
+            cout << "Number Of Normal Shot : " << NumberOfNormalShot << endl;
+            cout << "Number Of Drop Kick Shot : " << NumberOfDropkickShot << endl;
+            cout << "Number Of Bomb Shot : " << NumberOfBombShot << endl;
+            cout << "Number Of Drill Shot : " << NumberOfDrillShot;
+            PauseScreen();
+            if (CounterEnemy == NumberOfEnemy)
+            {
+                break;
+            }
         }
-        UseDropkickShot++;
-        ClearArea(10, 100, 0, SizeOfMapY + 1);
-        gotoxy(0, SizeOfMapY);
-        cout << "\n\n";
-        cout << "Enemy : " << CounterEnemy << endl;
-        cout << "Wall : " << CounterWall << endl;
-        cout << "Number Of Normal Shot : " << NumberOfNormalShot - UseNormalShot << endl;
-        cout << "Number Of Drop Kick Shot : " << NumberOfDropkickShot - UseDropkickShot << endl;
-        cout << "Number Of Bomb Shot : " << NumberOfBombShot - UseBombShot << endl;
-        cout << "Number Of Drill Shot : " << NumberOfDrillShot - UseDrillShot;
-        PauseScreen();
-        if (CounterEnemy == NumberOfEnemy)
+        else if (NumberOfNormalShot == 0 && ChoiceShot == '1')
         {
-            break;
+            ClearArea(10, 100, 0, SizeOfMapY + 1);
+            gotoxy(0, SizeOfMapY);
+            cout << "\n\n";
+            cout << "this shot is end ...\n";
+            cout << "Please choose another one";
+            PauseScreen();
         }
-    }
 
-    for (short i = 0; i < NumberOfBombShot; i++)
-    {
-        BombShot(CounterEnemy, CounterWall, GridMap);
-        if (CounterEnemy == -1)
+        if (NumberOfDropkickShot > 0 && ChoiceShot == '2')
         {
-            return -1;
+            DropKickShot(CounterEnemy, CounterWall, GridMap);
+            if (CounterEnemy == -1)
+            {
+                return -1;
+            }
+            UseDropkickShot++;
+            NumberOfDropkickShot--;
+            ClearArea(10, 100, 0, SizeOfMapY + 1);
+            gotoxy(0, SizeOfMapY);
+            cout << "\n\n";
+            cout << "Enemy : " << CounterEnemy << endl;
+            cout << "Wall : " << CounterWall << endl;
+            cout << "Number Of Normal Shot : " << NumberOfNormalShot << endl;
+            cout << "Number Of Drop Kick Shot : " << NumberOfDropkickShot << endl;
+            cout << "Number Of Bomb Shot : " << NumberOfBombShot << endl;
+            cout << "Number Of Drill Shot : " << NumberOfDrillShot;
+            PauseScreen();
+            if (CounterEnemy == NumberOfEnemy)
+            {
+                break;
+            }
         }
-        UseBombShot++;
-        ClearArea(10, 100, 0, SizeOfMapY + 1);
-        gotoxy(0, SizeOfMapY);
-        cout << "\n\n";
-        cout << "Enemy : " << CounterEnemy << endl;
-        cout << "Wall : " << CounterWall << endl;
-        cout << "Number Of Normal Shot : " << NumberOfNormalShot - UseNormalShot << endl;
-        cout << "Number Of Drop Kick Shot : " << NumberOfDropkickShot - UseDropkickShot << endl;
-        cout << "Number Of Bomb Shot : " << NumberOfBombShot - UseBombShot << endl;
-        cout << "Number Of Drill Shot : " << NumberOfDrillShot - UseDrillShot;
-        PauseScreen();
-        if (CounterEnemy == NumberOfEnemy)
+        else if (NumberOfDropkickShot == 0 && ChoiceShot == '2')
         {
-            break;
+            ClearArea(10, 100, 0, SizeOfMapY + 1);
+            gotoxy(0, SizeOfMapY);
+            cout << "\n\n";
+            cout << "this shot is end ...\n";
+            cout << "Please choose another one";
+            PauseScreen();
         }
-    }
 
-    for (short i = 0; i < NumberOfDrillShot; i++)
-    {
-        DrillShot(CounterEnemy, CounterWall, GridMap);
-        if (CounterEnemy == -1)
+        if (NumberOfBombShot > 0 && ChoiceShot == '3')
         {
-            return -1;
+            BombShot(CounterEnemy, CounterWall, GridMap);
+            if (CounterEnemy == -1)
+            {
+                return -1;
+            }
+            UseBombShot++;
+            NumberOfBombShot--;
+            ClearArea(10, 100, 0, SizeOfMapY + 1);
+            gotoxy(0, SizeOfMapY);
+            cout << "\n\n";
+            cout << "Enemy : " << CounterEnemy << endl;
+            cout << "Wall : " << CounterWall << endl;
+            cout << "Number Of Normal Shot : " << NumberOfNormalShot << endl;
+            cout << "Number Of Drop Kick Shot : " << NumberOfDropkickShot << endl;
+            cout << "Number Of Bomb Shot : " << NumberOfBombShot << endl;
+            cout << "Number Of Drill Shot : " << NumberOfDrillShot;
+            PauseScreen();
+            if (CounterEnemy == NumberOfEnemy)
+            {
+                break;
+            }
         }
-        UseDrillShot++;
-        ClearArea(10, 100, 0, SizeOfMapY + 1);
-        gotoxy(0, SizeOfMapY);
-        cout << "\n\n";
-        cout << "Enemy : " << CounterEnemy << endl;
-        cout << "Wall : " << CounterWall << endl;
-        cout << "Number Of Normal Shot : " << NumberOfNormalShot - UseNormalShot << endl;
-        cout << "Number Of Drop Kick Shot : " << NumberOfDropkickShot - UseDropkickShot << endl;
-        cout << "Number Of Bomb Shot : " << NumberOfBombShot - UseBombShot << endl;
-        cout << "Number Of Drill Shot : " << NumberOfDrillShot - UseDrillShot;
-        PauseScreen();
-        if (CounterEnemy == NumberOfEnemy)
+        else if (NumberOfBombShot == 0 && ChoiceShot == '3')
         {
-            break;
+            ClearArea(10, 100, 0, SizeOfMapY + 1);
+            gotoxy(0, SizeOfMapY);
+            cout << "\n\n";
+            cout << "this shot is end ...\n";
+            cout << "Please choose another one";
+            PauseScreen();
+        }
+
+        if (NumberOfDrillShot > 0 && ChoiceShot == '4')
+        {
+            DrillShot(CounterEnemy, CounterWall, GridMap);
+            if (CounterEnemy == -1)
+            {
+                return -1;
+            }
+            UseDrillShot++;
+            NumberOfDrillShot--;
+            ClearArea(10, 100, 0, SizeOfMapY + 1);
+            gotoxy(0, SizeOfMapY);
+            cout << "\n\n";
+            cout << "Enemy : " << CounterEnemy << endl;
+            cout << "Wall : " << CounterWall << endl;
+            cout << "Number Of Normal Shot : " << NumberOfNormalShot << endl;
+            cout << "Number Of Drop Kick Shot : " << NumberOfDropkickShot << endl;
+            cout << "Number Of Bomb Shot : " << NumberOfBombShot << endl;
+            cout << "Number Of Drill Shot : " << NumberOfDrillShot;
+            PauseScreen();
+            if (CounterEnemy == NumberOfEnemy)
+            {
+                break;
+            }
+        }
+        else if (NumberOfBombShot == 0 && ChoiceShot == '4')
+        {
+            ClearArea(10, 100, 0, SizeOfMapY + 1);
+            gotoxy(0, SizeOfMapY);
+            cout << "\n\n";
+            cout << "this shot is end ...\n";
+            cout << "Please choose another one";
+            PauseScreen();
         }
     }
 
@@ -4057,7 +4115,7 @@ short PlayGame(short WhichMap, short NumberOfNormalShot, short NumberOfDropkickS
 
     Star = CalculatePoint(NumberOfEnemy, CounterEnemy, CounterWall,
                           UseNormalShot, UseDropkickShot, UseBombShot, UseDrillShot,
-                          NumberOfNormalShot, NumberOfDropkickShot, NumberOfBombShot, NumberOfDrillShot);
+                          AllNumberOfNormalShot, AllNumberOfDropkickShot, AllNumberOfBombShot, AllNumberOfDrillShot);
 
     return Star;
 }

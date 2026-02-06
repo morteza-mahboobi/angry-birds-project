@@ -15,6 +15,7 @@ This game have 6 levels and 4 types of shot
 -> bomb shot       :  {If it touch anything, destroy 3*3 of that area}
 -> drill shot      :  {This shot can pass 2 walls}
 
+--> In the game, you can choose any shot you want 
 
 If you want to exit while playing, press 'Q' when the bullet is moving 
 
