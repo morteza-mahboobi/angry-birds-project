@@ -24,3 +24,7 @@ If you want to exit while playing, press 'Q' when the bullet is moving
 --> When you exit while playing, your previous games are saved
  
 --> To enter values, there is no limit on (+/-) & (integer/decimal)
+
+--> Each level has 4 stars :
+    3 stars for killing enemies
+    1 star for remaining shots or destroying walls

@@ -130,10 +130,11 @@ int main()
         cout << "======================================\n\n";
         cout << "1) Start" << endl
              << "2) How To Play" << endl
-             << "3) Reset Progress" << endl
-             << "4) Show Map" << endl
-             << "5) Setting" << endl
-             << "6) About The Developer\n\n"
+             << "3) Help & How to play (persian mode)" << endl
+             << "4) Reset Progress" << endl
+             << "5) Show Map" << endl
+             << "6) Setting" << endl
+             << "7) About The Developer\n\n"
              << "0) Exit\n\n";
 
         cout << "Progress :\n";
@@ -196,6 +197,17 @@ int main()
         else if (Choice == 3)
         {
             cout << "\n--------------------------------------\n";
+            cout << "    How To Play & Help (persian mode)\n";
+            cout << "--------------------------------------\n\n";
+
+            cout << "Wait for open file ....";
+            system("persian-help.pdf");
+
+            PauseScreen();
+        }
+        else if (Choice == 4)
+        {
+            cout << "\n--------------------------------------\n";
             cout << "         Progress Statuse\n";
             cout << "--------------------------------------\n\n";
 
@@ -203,7 +215,7 @@ int main()
             cout << "Reset Progress Was Successfully ..." << endl;
             PauseScreen();
         }
-        else if (Choice == 4)
+        else if (Choice == 5)
         {
             short **GridMap = new short *[SizeOfMapX + 1];
             for (int i = 0; i <= SizeOfMapX; i++)
@@ -307,7 +319,7 @@ int main()
             }
             delete[] GridMap;
         }
-        else if (Choice == 5)
+        else if (Choice == 6)
         {
             short *Temp = new short;
 
@@ -671,13 +683,14 @@ int main()
                 }
             }
         }
-        else if (Choice == 6)
+        else if (Choice == 7)
         {
             cout << "\n--------------------------------------\n";
             cout << "          About The Developer\n";
             cout << "--------------------------------------\n\n";
 
             cout << " Create by \" Morteza Mahboobi \" " << endl;
+            cout << " github address : https://github.com/morteza-mahboobi/angry-birds-project";
 
             PauseScreen();
         }
@@ -4059,7 +4072,7 @@ short CalculatePoint(short NumberOfEnemy, short CounterEnemy, short CounterWall,
     int SumPointRemainderShot = SumPointAllShot - (UseNormalShot * 10 + UseDropkickShot * 20 + UseBombShot * 30 + UseDrillShot * 40);
     int SumPointWall = CounterWall * 5;
 
-    if (CounterEnemy >= floor(NumberOfEnemy / 3) || (SumPointWall > 30))
+    if (CounterEnemy >= floor(NumberOfEnemy / 3))
     {
         Star++;
     }
@@ -4074,12 +4087,11 @@ short CalculatePoint(short NumberOfEnemy, short CounterEnemy, short CounterWall,
         Star++;
     }
 
-    /* for fourth star
-        if ((SumPointRemainderShot > SumPointAllShot / 2) || (SumPointWall > 30))
-        {
-            Star++;
-        }
-    */
+    // for fourth star
+    if ((SumPointRemainderShot > SumPointAllShot / 2) || (SumPointWall > 30))
+    {
+        Star++;
+    }
 
     return Star;
 }
