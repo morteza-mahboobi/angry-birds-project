@@ -1,0 +1,31 @@
+To play, you have two ways to move :
+1- One way is to hold or press "ENTER" key
+2- Another way is automatically
+
+Also, to give value you have two ways :
+1- Enter (speed) & (angle) 
+2- Enter (speed along the x-axis) & (speed along the y-axis) & (acceleration)
+
+To change both of the above, you must go to the settings
+
+
+This game have 6 levels and 4 types of shot
+-> normal shot
+-> drop kick shot  :  {When it flies if you press 'O' it falls}
+-> bomb shot       :  {If it touch anything, destroy 3*3 of that area}
+-> drill shot      :  {This shot can pass 2 walls}
+
+--> In the game, you can choose any shot you want 
+
+If you want to exit while playing, press 'Q' when the bullet is moving 
+
+
+--> If your score isn't higher than the last saved match, it won't be saved    
+
+--> When you exit while playing, your previous games are saved
+ 
+--> To enter values, there is no limit on (+/-) & (integer/decimal)
+
+--> Each level has 4 stars :
+    3 stars for killing enemies
+    1 star for remaining shots or destroying walls
