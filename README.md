@@ -1,26 +1,33 @@
-<h1>ANGRY BIRDS GAME</h1>
-<p><img src="angry-birds-picture.jpg" alt="picture of the game" width="400"></p>
+# ANGRY BIRDS GAME
 
-<p>This repository was created for my college project. <br><br>
-    This project is based on the popular game <b>Angry Birds</b> . <br>
-    In this game, I use the laws of physics such as gravity and velocity.
-</p>
+![Picture of the game](angry-birds-picture.jpg)
 
-<br>
+This repository was created for my college project.
 
-<h4>Project Features:</h4>
-<ul>
-    <li>Includes various levels and maps</li>
-    <li>All maps are responsive</li>
-    <li>Includes a limited number of shots per level</li>
-    <li>Includes various types of shots (like normal, bomb, ...)</li>
-    <li>Includes a game guide</li>
-    <li>Includes a settings menu</li>
-</ul>
+This project is based on the popular game **Angry Birds**.
 
-<h4>Installation and Running the Project:</h4>
-<ol>
-    <li>Open "angry birds.cpp"</li>
-    <li>Build the file using a code editor such as Visual Studio Code</li>
-    <li>Run the generated "angry birds.exe" file</li>
-</ol>
+The game simulates basic physics, including gravity and projectile motion.
+
+## Project Features
+
+- Various levels and maps
+- Maps automatically adapt to different map sizes and game settings
+- Limited number of shots per level
+- Multiple shot types (Normal, Bomb, etc.)
+- In-game guide
+- Settings menu
+
+## Installation and Running
+
+### Option 1: Run Pre-built Version (Easy)
+
+1. Download or open the complete project folder.
+2. Make sure all required files are kept in the same directory.
+3. Run the executable file.
+4. The game will start immediately.
+
+### Option 2: Build and Run from Source (Advanced)
+
+1. Open `angry birds.cpp`.
+2. Build the project using a C++ IDE or code editor such as **Visual Studio Code**.
+3. Run the generated `angry birds.exe` file.
